@@ -1,0 +1,2 @@
+null_type	evaluable_set_type	n_selected_decoys_total	n_evaluable_decoys_total	candidate_level_evaluable_rate	candidate_level_evaluable_rate_denominator	n_profile_supported_triplets	n_observed_path_evaluable_triplets	n_triplets_with_evaluable_decoy	triplet_level_coverage	n_comparison_triplets	n_evaluable_decoys_histogram	n_unique_drugs	n_unique_observed_targets	n_unique_diseases	n_unique_decoy_targets
+topology_profile_matched_target_decoy_control	path_existing_pairs	9	6	0.6666666666666666	n_selected_decoys_total	3	2	2	1.0	2	"{""0"": 1, ""3"": 2}"	3	3	2	6

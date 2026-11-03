@@ -1,0 +1,130 @@
+datasets:
+  signor:
+    ppi_path: ../data/input/kg_signor.tsv
+    sep: "\t"
+    source_col: source
+    target_col: target
+    sign_col: polarity
+    mechanism_col: mechanism
+
+  openbiolink:
+    ppi_path: ../data/input/kg_openbiolink.tsv
+    sep: "\t"
+    source_col: source
+    target_col: target
+    sign_col: polarity
+    mechanism_col: null
+
+labels:
+  targetnexus_db:
+    knockdown:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_kd_targetnexus_db_signor.parquet
+        openbiolink: ../data/input/features_kd_targetnexus_db_openbiolink.parquet
+    overexpression:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_oe_targetnexus_db_signor.parquet
+        openbiolink: ../data/input/features_oe_targetnexus_db_openbiolink.parquet
+
+  namba_ref:
+    knockdown:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_kd_namba_ref_signor.parquet
+        openbiolink: ../data/input/features_kd_namba_ref_openbiolink.parquet
+    overexpression:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_oe_namba_ref_signor.parquet
+        openbiolink: ../data/input/features_oe_namba_ref_openbiolink.parquet
+
+  # target(pert_id) を KG out-degree>0 ノードに限定した版（_tdeg）
+  targetnexus_db_tdeg:
+    knockdown:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_kd_targetnexus_db_signor_tdeg.parquet
+        openbiolink: ../data/input/features_kd_targetnexus_db_openbiolink_tdeg.parquet
+    overexpression:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_oe_targetnexus_db_signor_tdeg.parquet
+        openbiolink: ../data/input/features_oe_targetnexus_db_openbiolink_tdeg.parquet
+
+  namba_ref_tdeg:
+    knockdown:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_kd_namba_ref_signor_tdeg.parquet
+        openbiolink: ../data/input/features_kd_namba_ref_openbiolink_tdeg.parquet
+    overexpression:
+      pert_suffix: _gene
+      disease_suffix: _disease
+      parquet:
+        signor: ../data/input/features_oe_namba_ref_signor_tdeg.parquet
+        openbiolink: ../data/input/features_oe_namba_ref_openbiolink_tdeg.parquet
+
+# Revised Val3 triplet registry blocks. Existing val1/val2 blocks above are preserved.
+
+triplets:
+  targetnexus_db:
+    # TargetNexus-DB export（config/ からの相対）。別場所に置く場合はここだけ差し替える。
+    inhibitory_tsv: ../data/validation/val3_triplet_full_inhibitory__DrugGD-OT__ot25_12__v1.tsv
+    activatory_tsv: ../data/validation/val3_triplet_full_activatory__DrugGD-OT__ot25_12__v1.tsv
+
+profiles:
+  drug:
+    l1000:
+      parquet: ../data/validation/drug_profiles_l1000.parquet
+      id_col: pert_iname
+      cell_col: cell_id
+      # null のときはマッピングなし（pert_iname を normalize_pubchem_compound_id で drug_id に）。名前→CID が必要なら TSV を用意してパスを書く。
+      id_mapping_tsv: null
+      id_mapping_source_col: null
+      id_mapping_target_col: null
+
+  target:
+    knockdown:
+      format: caliper_feature_matrix
+      parquet: ../data/input/features_kd_targetnexus_db_signor.parquet
+      pert_col: pert_id
+      disease_col: do_id
+      cell_col: cell_id
+      label_col: label
+      gene_suffix: _gene
+      disease_suffix: _disease
+    overexpression:
+      format: caliper_feature_matrix
+      parquet: ../data/input/features_oe_targetnexus_db_signor.parquet
+      pert_col: pert_id
+      disease_col: do_id
+      cell_col: cell_id
+      label_col: label
+      gene_suffix: _gene
+      disease_suffix: _disease
+    l1000_knockdown:
+      format: l1000_bing_signature
+      parquet: ../preprocess/data/intermediate/BING_knockdown_signature.parquet
+      pert_col: ncbigene_id
+      cell_col: cell_id
+      sign_threshold: 1.0
+    l1000_overexpression:
+      format: l1000_bing_signature
+      parquet: ../preprocess/data/intermediate/BING_overexpression_signature.parquet
+      pert_col: ncbigene_id
+      cell_col: cell_id
+      sign_threshold: 1.0
+
+  disease:
+    disease_signature:
+      parquet: ../preprocess/data/intermediate/disease_specific_signature_human.parquet
+      disease_col: doid

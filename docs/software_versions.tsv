@@ -1,0 +1,14 @@
+component	version_or_setting	status	source
+Python	3.12.3	manuscript-reported completed environment	Supplementary Table S4
+NumPy	1.26.4	manuscript-reported completed environment	Supplementary Table S4
+pandas	2.2.2	manuscript-reported completed environment	Supplementary Table S4
+NetworkX	3.3	manuscript-reported completed environment	Supplementary Table S4
+SciPy	1.13.1	public-release test pin	public environment
+matplotlib	3.8.4	public-release test pin	public environment
+matplotlib-venn	1.1.1	public-release test pin	public environment
+seaborn	0.13.2	public-release test pin	public environment
+PyArrow	16.1.0	public-release test pin	public environment
+PyYAML	6.0.2	public-release test pin	public environment
+tqdm	4.66.4	public-release test pin	public environment
+pytest	8.3.5	public-release test pin	public environment
+CALIPER environment	1.0.0	public release version	this repository

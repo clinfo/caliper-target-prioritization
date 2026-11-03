@@ -1,0 +1,11 @@
+extends: ./common.yaml
+
+analysis:
+  n_null: 1000
+  bootstrap_reps: 1000
+  save_observation_rows: true
+
+sections:
+  compute: true
+  figures: true
+  report: true

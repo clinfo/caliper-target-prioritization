@@ -1,0 +1,4 @@
+null_type	evaluable_set_type	analysis_scope	stage	weighting	variable	n_observed_rows	n_decoy_rows	observed_mean	decoy_mean	smd	abs_smd	abs_smd_threshold	is_within_threshold	n_matching_variables	max_abs_smd	all_matching_variables_within_threshold
+topology_profile_matched_target_decoy_control	path_existing_pairs	primary_path_evaluable	pre_inference_selected	triplet_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	-1.414213562373095	1.414213562373095	0.1	False	3	1.414213562373095	False
+topology_profile_matched_target_decoy_control	path_existing_pairs	primary_path_evaluable	pre_inference_selected	triplet_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0			0.1	False	3	1.414213562373095	False
+topology_profile_matched_target_decoy_control	path_existing_pairs	primary_path_evaluable	pre_inference_selected	triplet_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	-1.414213562373095	1.414213562373095	0.1	False	3	1.414213562373095	False

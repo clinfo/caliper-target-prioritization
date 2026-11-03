@@ -1,0 +1,7 @@
+null_type	triplet_id	drug_id	target_id	disease_id	evaluable_set_type	n_decoy_anchors	decoy_anchor_id	decoy_anchor_degree_in	decoy_anchor_degree_out	n_reachable_nodes_decoy	n_decoy_paths	profile_coverage_decoy	path_recoverability_decoy	is_decoy_evaluable
+topology_profile_matched_target_decoy_control	T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	DOID:1	path_existing_pairs	3	NCBIGENE:10	3	3	17	1	17		True
+topology_profile_matched_target_decoy_control	T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	DOID:1	path_existing_pairs	3	NCBIGENE:16	3	3	17	6	17		True
+topology_profile_matched_target_decoy_control	T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	DOID:1	path_existing_pairs	3	NCBIGENE:19	3	3	17	2	17		True
+topology_profile_matched_target_decoy_control	T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	DOID:2	path_existing_pairs	3	NCBIGENE:1	3	3	17	2	17		True
+topology_profile_matched_target_decoy_control	T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	DOID:2	path_existing_pairs	3	NCBIGENE:13	3	3	17	4	17		True
+topology_profile_matched_target_decoy_control	T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	DOID:2	path_existing_pairs	3	NCBIGENE:5	3	3	17	1	17		True

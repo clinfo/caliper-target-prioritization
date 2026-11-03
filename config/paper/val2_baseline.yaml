@@ -1,0 +1,109 @@
+run:
+  seed: 42
+  date_tag: auto
+  output_root: ../../outputs
+  output_name: auto
+  registry_path: ../dataset_registry.example.yaml
+
+data:
+  kg: signor
+  perturbation_mode: knockdown
+  label_source: targetnexus_db_tdeg
+
+external_baseline:
+  # Primary analysis selector:
+  #   native_shared_network            -> current implementation on shared undirected LCC H
+  #   directed_target_reach_matched    -> horizon-masked NCS + local proximity/RWR on directed target reach
+  primary_analysis: native_shared_network
+  # External baselines to include in the common universe and paired evaluation.
+  # Allowed: NCS, proximity, RWR, DADA (DADA is native_shared_network only).
+  # Omit to use the default set for the selected primary_analysis
+  # (native_shared_network -> all four; directed_target_reach_matched -> NCS/proximity/RWR).
+  baselines: [NCS, proximity, RWR, DADA]
+
+  # SI-02: val1 selection output (must contain k_star)
+  k_selection_json: ../../outputs/val1/<resolved-run>/selection/k_selection.json
+  # Optional manual cross-check; if set it must equal the JSON k_star when caliper.ks is omitted.
+  # k_star: 4
+  # Optional: evaluate CALIPER at multiple hop radii (native_shared_network only).
+  # Each CALIPER@k is compared individually against each selected baseline.
+  # caliper:
+  #   ks: [3, 4, 5]
+
+  # NCS reference profile (target-cell averaged BING_knockdown_signature).
+  # Per user direction the NCS reference is the target-cell averaged profile,
+  # NOT per-sig_id Level 5 signatures required by methodology §6.2.1 /
+  # validation #4. The full population (all target-cell profiles per cell line)
+  # is used as the per-cell NCS normalization population, independent of the
+  # val2 candidate set (§6.2.2, validation #13). The file is built from
+  # pert_type == trt_sh.cgs rows only, so validation #14 holds by construction.
+  continuous_kd_profile:
+    parquet: ../preprocess/data/intermediate/BING_knockdown_signature.parquet
+    id_col: ncbigene_id
+    cell_col: cell_id
+
+  # SI-04: val2 label rows (exactly the same parquet the compared val2 run used)
+  val2_label_parquet: ../../data/input/features_kd_targetnexus_db_signor_tdeg.parquet
+
+  # Baseline disease-signature source (NCS query + proximity/RWR seeds only;
+  # CALIPER always keeps the val2 discretized disease profile, methodology §3.3).
+  #   source: val2        -> bundle.disease_signatures (pert∩dis∩KG restricted; default)
+  #   source: full_creeds -> sign of the full CREEDS signature (no pert/KG restriction);
+  #                          'parquet' is then required.
+  baseline_disease_signature:
+    source: val2
+    # parquet: ../preprocess/data/intermediate/disease_specific_signature_human.parquet
+    # id_col: doid
+
+  # SI-01: RWR restart probability (single value, not tuned on labels)
+  rwr:
+    restart_probability: 0.5
+
+  proximity:
+    n_random: 1000
+    min_bin_size: 100
+
+  # SI-05: shared random seed (must be set explicitly; no implicit default)
+  shared_seed: 42
+
+  min_disease_seeds: 20
+
+  # Used only when primary_analysis: directed_target_reach_matched.
+  target_reach_matched:
+    horizon: k_star
+    ncs:
+      fallback_score: 0.0
+    proximity:
+      fallback_score: 0.0
+    rwr:
+      fallback_score: 0.0
+      target_only_seed_score: 1.0
+
+analysis:
+  K_eff_cap: 10
+  # Multiple Lift@K cutoffs (val2-style). Omit to use [K_eff_cap] only.
+  K_list: [10, 20]
+  tie_policy: expected   # expected | legacy
+  # Supplementary Lift@K_eval cohort: diseases with E[h_d,K] >= threshold.
+  lift_eval_min_expected_hits: 1
+
+sections:
+  scores: true
+  evaluation: true
+  make_figures: true
+  make_report: true
+  # sensitivity: true で §9.1 candidate-excluded 感度分析 (proximity/RWR を S_{d,-t}^H で再計算) を生成
+  sensitivity: false
+
+report:
+  language: en
+  max_rows: 20
+
+stats:
+  enabled: true
+  n_boot: 10000
+  bootstrap_seed: 42
+  # 有意差検定は k=4 の paired t 検定 + Holm 補正に固定 (設定不可)。
+  alpha: 0.05
+  # Omit metrics to auto-generate AP + Lift@K + Lift@K_eval for each K in K_list.
+  metrics: [AP, "Lift@10", "Lift@10_eval", "Lift@20", "Lift@20_eval"]

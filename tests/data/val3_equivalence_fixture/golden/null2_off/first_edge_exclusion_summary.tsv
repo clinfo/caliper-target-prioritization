@@ -1,0 +1,3 @@
+null_type	evaluable_set_type	statistic	n_comparison_triplets	observed_mean_all_edges	observed_mean_first_edge_excluded	null_median_all_edges	null_median_first_edge_excluded	delta_mean_all_edges	delta_mean_first_edge_excluded	delta_mean_ratio	n_pairs_empty_after_exclusion	n_edges_removed_median_drug	n_edges_removed_median_pert
+target_khop_restricted_paired_gene_label_permutation	path_existing_pairs	joint_jaccard	2	0.35119047619047616	0.35	0.296875	0.0625	0.054315476190476164	0.2875	5.293150684931509	5	1.0	0.0
+topology_profile_matched_target_decoy_control	path_existing_pairs	joint_jaccard	2	0.35119047619047616	0.35	0.3280753968253968	0.08333333333333333	0.02311507936507934	0.2666666666666667	11.536480686695295	5	1.0	1.0

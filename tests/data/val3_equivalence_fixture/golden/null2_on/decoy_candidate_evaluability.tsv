@@ -1,0 +1,10 @@
+original_triplet_id	pseudo_triplet_id	drug_id	original_target_id	decoy_target_id	disease_id	direction	match_rank	matching_distance	evaluable_set_type	is_decoy_evaluable	n_raw_cell_pairs	n_path_existing_cell_pairs	n_drug_paths	n_kd_paths	joint_jaccard	has_joint_score
+T1	T1__matched_decoy__NCBIGENE:19	PUBCHEM.COMPOUND:11	NCBIGENE:1	NCBIGENE:19	DOID:1	inhibitory	1	0.0	path_existing_pairs	True	6	2	6	12	0.14285714285714285	True
+T1	T1__matched_decoy__NCBIGENE:16	PUBCHEM.COMPOUND:11	NCBIGENE:1	NCBIGENE:16	DOID:1	inhibitory	2	0.0	path_existing_pairs	True	6	6	12	8	0.27910052910052907	True
+T1	T1__matched_decoy__NCBIGENE:10	PUBCHEM.COMPOUND:11	NCBIGENE:1	NCBIGENE:10	DOID:1	inhibitory	3	0.0	path_existing_pairs	True	6	1	12	2	0.2222222222222222	True
+T2	T2__matched_decoy__NCBIGENE:9	PUBCHEM.COMPOUND:12	NCBIGENE:4	NCBIGENE:9	DOID:1	inhibitory	1	0.0	path_existing_pairs	False	6	0	0	2		False
+T2	T2__matched_decoy__NCBIGENE:7	PUBCHEM.COMPOUND:12	NCBIGENE:4	NCBIGENE:7	DOID:1	inhibitory	2	0.0	path_existing_pairs	False	6	0	0	2		False
+T2	T2__matched_decoy__NCBIGENE:2	PUBCHEM.COMPOUND:12	NCBIGENE:4	NCBIGENE:2	DOID:1	inhibitory	3	0.0	path_existing_pairs	False	6	0	6	0		False
+T3	T3__matched_decoy__NCBIGENE:1	PUBCHEM.COMPOUND:13	NCBIGENE:8	NCBIGENE:1	DOID:2	inhibitory	1	0.0	path_existing_pairs	True	6	2	6	2	0.625	True
+T3	T3__matched_decoy__NCBIGENE:5	PUBCHEM.COMPOUND:13	NCBIGENE:8	NCBIGENE:5	DOID:2	inhibitory	2	0.0	path_existing_pairs	True	6	1	3	4	0.16666666666666666	True
+T3	T3__matched_decoy__NCBIGENE:13	PUBCHEM.COMPOUND:13	NCBIGENE:8	NCBIGENE:13	DOID:2	inhibitory	3	0.0	path_existing_pairs	True	6	4	9	6	0.43392857142857144	True

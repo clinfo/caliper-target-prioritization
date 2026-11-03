@@ -1,0 +1,45 @@
+# Local environments and caches
+.venv/
+venv/
+env/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local configuration and runtime products
+config/*.local.yaml
+config/*.local.yml
+config/local/
+outputs/
+output/
+runs/
+reports/
+*.log
+*.tmp
+
+# External raw and large data
+data/external/
+data/raw/
+data/local/
+preprocess/data/raw/
+preprocess/data/intermediate/
+*.gctx
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.cram
+*.sam
+*.mtx
+*.h5ad
+
+# Private material and operating-system files
+.env
+.DS_Store
+Thumbs.db
+*.swp
+*~

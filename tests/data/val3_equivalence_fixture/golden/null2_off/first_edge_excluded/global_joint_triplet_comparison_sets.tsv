@@ -1,0 +1,5 @@
+edge_scope	null_type	evaluable_set_type	triplet_id	in_observed_evaluable	in_null_evaluable	n_null_iterations_available	n_decoy_anchors_available	expected_null_iterations	is_comparison_triplet
+first_edge_excluded	target_khop_restricted_paired_gene_label_permutation	path_existing_pairs	T1	True	True	2		3	True
+first_edge_excluded	target_khop_restricted_paired_gene_label_permutation	path_existing_pairs	T3	True	True	3		3	True
+first_edge_excluded	topology_profile_matched_target_decoy_control	path_existing_pairs	T1	True	True		3		True
+first_edge_excluded	topology_profile_matched_target_decoy_control	path_existing_pairs	T3	True	True		3		True

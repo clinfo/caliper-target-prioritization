@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use CALIPER, please cite the accompanying manuscript and this software release."
+type: software
+title: "CALIPER"
+version: "1.0.0"
+authors:
+  - family-names: Anamizu
+    given-names: Wakana
+  - family-names: Sakuragi
+    given-names: Minoru
+  - family-names: Yamamoto
+    given-names: Tatsuki
+  - family-names: Okuno
+    given-names: Yasushi
+abstract: "Causality-Aware Locality Identification for Perturbation-Effect Reasoning."
+license: MIT
+keywords:
+  - therapeutic target prioritization
+  - causal network
+  - perturbational transcriptomics

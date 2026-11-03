@@ -1,0 +1,14 @@
+{
+  "title": "CALIPER",
+  "description": "CALIPER integrates perturbational transcriptomes and signed causal graphs for locality-constrained therapeutic target prioritization.",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "license": "MIT",
+  "creators": [
+    {"name": "Anamizu, Wakana"},
+    {"name": "Sakuragi, Minoru"},
+    {"name": "Yamamoto, Tatsuki"},
+    {"name": "Okuno, Yasushi"}
+  ],
+  "keywords": ["therapeutic target prioritization", "causal network", "perturbational transcriptomics"]
+}

@@ -1,0 +1,78 @@
+run:
+  seed: 0
+  date_tag: auto
+  output_root: ../../outputs
+  output_name: auto
+  registry_path: ../dataset_registry.example.yaml
+
+data:
+  kg: signor
+  perturbation_mode: knockdown
+  label_source: targetnexus_db_tdeg
+
+sections:
+  select_k: true
+  compute_td_individual_stats: true
+  run_selection_sensitivity: true
+  # Path-enumeration complexity benchmark. Off by default because it takes about
+  # 1.8 hours; run it explicitly with --steps pathbench.
+  run_path_benchmark: false
+  make_figures: true
+  make_report: true
+
+steps:
+  default: all
+
+analysis:
+  # The primary route resolves k* from the label-free criterion. The completed
+  # manuscript analysis selected k*=4; the neighbouring k=3 and k=5 values are
+  # retained as sensitivity settings by the resolved k grid.
+  ks_policy: kmax
+  ks: []
+  # Path-enumeration complexity benchmark (Fig. 2d / 2e, Table S4). The primary
+  # metrics are deterministic (n_paths, N_k, within_budget_rate); runtime and
+  # peak memory are auxiliary and are never used to select k.
+  path_benchmark:
+    enabled: true
+    max_paths: 100000     # primary truncation; budget-exceeded targets record n_paths as a lower bound
+    timeout_sec: 600      # safety net only, not reported as a statistic
+    warmup: 0             # record the first (cold) execution
+    repeats: 1
+    measure_node_score: true
+    ks: inherit           # reuse the ks resolved by ks_policy: kmax
+
+metrics:
+  coverage:
+    primary: cov_ratio
+  ambiguity:
+    primary: amb_median
+  integration:
+    method: harmonic_mean
+    normalize: true
+    zero_division: 0.0
+  selection:
+    top_n: 3
+  # Label-free sensitivity of the k* selection rule. The primary rule above is
+  # never changed by this block; alternative rules are post-hoc only.
+  selection_sensitivity:
+    enabled: true
+    rules: [geometric_mean, pareto_knee, coverage_threshold, ambiguity_ceiling]
+    coverage_threshold:
+      scale: raw
+      taus: [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50, 0.60, 0.70, 0.80]
+      primary_tau: 0.20
+    ambiguity_ceiling:
+      betas: [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
+      primary_beta: 0.30
+    pareto:
+      knee_method: max_chord_distance
+    resampling:
+      leave_one_target_out: true
+      leave_one_disease_out: true
+      bootstrap_targets: 0
+
+progress:
+  enabled: true
+  use_tqdm: true
+  leave: false
+  mininterval: 1.0

@@ -1,0 +1,4 @@
+original_triplet_id	drug_id	original_target_id	disease_id	evaluable_set_type	n_selected_decoys	n_evaluable_decoys	has_evaluable_decoy
+T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	DOID:1	path_existing_pairs	3	3	True
+T2	PUBCHEM.COMPOUND:12	NCBIGENE:4	DOID:1	path_existing_pairs	3	0	False
+T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	DOID:2	path_existing_pairs	3	3	True

@@ -1,0 +1,92 @@
+run:
+  seed: 0
+  date_tag: auto
+  output_root: ../../../outputs
+  output_name: auto
+  registry_path: ../../dataset_registry.example.yaml
+
+data:
+  kg: signor
+  perturbation_mode: knockdown
+  label_source: targetnexus_db_tdeg
+
+analysis:
+  k_star: 4
+  gap: 1
+  path_strategy: shortest
+  multi_family_edges: include_all
+
+family_selection:
+  mode: kg_support
+  min_physical_edges: 100
+
+family_definition:
+  Transcriptional_regulation:
+    - transcriptional regulation
+
+  Post_transcriptional_control:
+    - post transcriptional regulation
+
+  Translation_regulation:
+    - translation regulation
+
+  Phospho_state:
+    - phosphorylation
+    - dephosphorylation
+
+  Binding:
+    - binding
+
+  Localization:
+    - relocalization
+
+  GTPase_cycle_regulation:
+    - guanine nucleotide exchange factor
+    - gtpase-activating protein
+
+  Ubiquitin_Ubl_state:
+    - ubiquitination
+    - deubiquitination
+    - monoubiquitination
+    - polyubiquitination
+    - sumoylation
+    - desumoylation
+    - neddylation
+
+  Other_covalent_PTM:
+    - acetylation
+    - deacetylation
+    - methylation
+    - demethylation
+    - trimethylation
+    - glycosylation
+    - deglycosylation
+    - palmitoylation
+    - ADP-ribosylation
+    - carboxylation
+    - hydroxylation
+    - tyrosination
+    - lipidation
+    - oxidation
+    - s-nitrosylation
+
+  Proteolytic_processing:
+    - cleavage
+
+  Chemical_regulation:
+    - chemical activation
+    - chemical inhibition
+
+  Generic_modification:
+    - post translational modification
+    - chemical modification
+
+  Stability_quantity_regulation:
+    - stabilization
+    - destabilization
+
+  Catalytic_activity:
+    - catalytic activity
+
+  Isomerization:
+    - isomerization

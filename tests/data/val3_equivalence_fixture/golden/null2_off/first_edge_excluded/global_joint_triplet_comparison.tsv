@@ -1,0 +1,5 @@
+edge_scope	null_type	evaluable_set_type	triplet_id	drug_id	target_id	direction	statistic	observed_value	baseline_representative	baseline_mean	baseline_median	delta	n_null_values	ref_delta_vs_null_mean	n_shuffle	n_decoy_anchors
+first_edge_excluded	target_khop_restricted_paired_gene_label_permutation	path_existing_pairs	T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	inhibitory	joint_jaccard	0.5	median	0.0	0.0	0.5	2	0.5	2	
+first_edge_excluded	target_khop_restricted_paired_gene_label_permutation	path_existing_pairs	T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	inhibitory	joint_jaccard	0.2	median	0.20833333333333334	0.125	0.07500000000000001	3	-0.008333333333333331	3	
+first_edge_excluded	topology_profile_matched_target_decoy_control	path_existing_pairs	T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	inhibitory	joint_jaccard	0.5	median	0.16481481481481483	0.16666666666666666	0.33333333333333337	3	0.33518518518518514		3.0
+first_edge_excluded	topology_profile_matched_target_decoy_control	path_existing_pairs	T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	inhibitory	joint_jaccard	0.2	median	0.016666666666666666	0.0	0.2	3	0.18333333333333335		3.0

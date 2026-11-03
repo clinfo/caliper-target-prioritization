@@ -1,0 +1,4 @@
+triplet_id	drug_id	target_id	direction	n_raw_cell_pairs	n_path_existing_cell_pairs	candidate_nodes_drug_min	candidate_nodes_pert_min	candidate_nodes_min	is_global_evaluable	evaluable_set_type
+T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	inhibitory	6	2	17	17	17	True	path_existing_pairs
+T2	PUBCHEM.COMPOUND:12	NCBIGENE:4	inhibitory	6	0	17	17	17	False	path_existing_pairs
+T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	inhibitory	6	2	17	17	17	True	path_existing_pairs

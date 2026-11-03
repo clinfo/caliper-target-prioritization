@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caliper-target-prioritization"
+version = "1.0.0"
+description = "CALIPER: causality-aware locality identification for perturbation-effect reasoning"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Wakana Anamizu"},
+  {name = "Minoru Sakuragi"},
+  {name = "Tatsuki Yamamoto"},
+  {name = "Yasushi Okuno"},
+]
+dependencies = [
+  "numpy==1.26.4",
+  "pandas==2.2.2",
+  "networkx==3.3",
+  "scipy==1.13.1",
+  "matplotlib==3.8.4",
+  "matplotlib-venn==1.1.1",
+  "seaborn==0.13.2",
+  "pyarrow==16.1.0",
+  "PyYAML==6.0.2",
+  "tqdm==4.66.4",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["infer_signature_reversal_paths"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["common*", "inference*", "val1*", "val2*", "val2_baseline*", "val3*", "val4*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

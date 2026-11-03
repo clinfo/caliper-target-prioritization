@@ -1,0 +1,69 @@
+run:
+  seed: 42
+  date_tag: auto
+  output_root: ../../outputs
+  output_name: auto
+  registry_path: ../dataset_registry.example.yaml
+
+data:
+  kg: signor
+  perturbation_mode: knockdown
+  label_source: targetnexus_db_tdeg
+
+sections:
+  ablation: true
+  permutation: false
+  make_figures: true
+  make_report: true
+
+report:
+  language: en
+  max_rows: 20
+
+analysis:
+  ks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  k_valid: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  K_list: [10, 20]
+  tie_policy: expected
+  n_jobs: 1  # 並列ワーカ数。1=逐次（現行同一）, -1=全コア
+
+ablation:
+  # `noKG` (Global no-KG) is an internal ablation and is compared as one method
+  # in the fixed k=4 panel; `ncs` (L1000 NCS) is the external reference line.
+  # Both are k-independent and may be enabled together.
+  methods: [proposed, kg_nosign, kg_sign_noalign, noKG, noKG_sizematch]
+  sizematch_reps: 100
+  save_pred_sign_ambiguity: true
+  save_proposed_w: false
+  # Required only when `ncs` is in ablation.methods. NCS follows the
+  # val2_baseline algorithm (WTCS + cell-line NCS normalization) but is
+  # evaluated on val2's own label pairs/diseases.
+  #   disease_signature.source: full_creeds (default) -> sign of the full CREEDS
+  #     signature (parquet required); val2 -> reuse the ablation's discretized
+  #     disease signatures (no parquet needed).
+  #   undefined_policy: floor (default) -> undefined pairs get a per-disease
+  #     floor score (rank last); drop -> undefined pairs are omitted.
+  ncs:
+    continuous_kd_profile:
+      parquet: ../preprocess/data/intermediate/BING_knockdown_signature.parquet
+      id_col: ncbigene_id
+      cell_col: cell_id
+    disease_signature:
+      source: full_creeds     # full_creeds (default) | val2
+      parquet: ../preprocess/data/intermediate/disease_specific_signature_human.parquet
+      id_col: doid
+    undefined_policy: floor    # floor | drop
+
+permutation:
+  n_perm: 10
+  save_by_disease: true
+
+stats:
+  enabled: true
+  n_boot: 10000
+  bootstrap_seed: 0
+  # 有意差検定は k=4 の paired t 検定 + Holm 補正に固定 (設定不可)。
+  alpha: 0.05
+  metrics: [AP, "Lift@10"]
+  comparisons: [pairwise, best_baseline]
+  baselines: [kg_nosign, kg_sign_noalign, noKG_sizematch]

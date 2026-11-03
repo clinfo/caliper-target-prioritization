@@ -1,0 +1,33 @@
+analysis_scope	stage	weighting	variable	n_observed_rows	n_decoy_rows	observed_mean	decoy_mean	observed_sd	decoy_sd	smd	abs_smd	is_matching_variable	evaluable_set_type
+all_profile_supported	pre_inference_selected	triplet_weighted	directed_out_degree	3	9	3.0	3.0	0.0	0.0			True	
+all_profile_supported	pre_inference_selected	triplet_weighted	reachable_unique_nodes_k4	3	9	17.0	16.999999999999996	0.0	3.552713678800501e-15	1.414213562373095	1.414213562373095	True	
+all_profile_supported	pre_inference_selected	triplet_weighted	unique_kd_cell_lines	3	9	3.0	3.0	0.0	0.0			True	
+all_profile_supported	pre_inference_selected	triplet_weighted	total_degree_diagnostic	3	9	6.0	6.0	0.0	0.0			False	
+all_profile_supported	pre_inference_selected	target_weighted	directed_out_degree	3	9	3.0	3.0	0.0	0.0			True	
+all_profile_supported	pre_inference_selected	target_weighted	reachable_unique_nodes_k4	3	9	17.0	16.999999999999996	0.0	3.552713678800501e-15	1.414213562373095	1.414213562373095	True	
+all_profile_supported	pre_inference_selected	target_weighted	unique_kd_cell_lines	3	9	3.0	3.0	0.0	0.0			True	
+all_profile_supported	pre_inference_selected	target_weighted	total_degree_diagnostic	3	9	6.0	6.0	0.0	0.0			False	
+all_profile_supported	post_evaluability_surviving	triplet_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	triplet_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	triplet_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	triplet_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	target_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	target_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	target_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+all_profile_supported	post_evaluability_surviving	target_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	triplet_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	triplet_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	triplet_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	triplet_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	target_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	target_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	target_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	pre_inference_selected	target_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	triplet_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	triplet_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	triplet_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	triplet_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	target_weighted	directed_out_degree	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	target_weighted	reachable_unique_nodes_k4	2	6	17.0	17.0	0.0	0.0			True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	target_weighted	unique_kd_cell_lines	2	6	3.0	3.0000000000000004	0.0	4.440892098500626e-16	-1.414213562373095	1.414213562373095	True	path_existing_pairs
+primary_path_evaluable	post_evaluability_surviving	target_weighted	total_degree_diagnostic	2	6	6.0	6.000000000000001	0.0	8.881784197001252e-16	-1.414213562373095	1.414213562373095	False	path_existing_pairs

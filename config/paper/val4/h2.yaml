@@ -1,0 +1,23 @@
+extends: ./common.yaml
+
+run:
+  output_root: ../../output
+  output_name: auto
+
+analysis:
+  n_null: 100
+  bootstrap_reps: 1000
+  save_pair_scores: true
+  h2_n_jobs: 40
+  h2_parallel_start_method: fork
+  h2_parallel_chunksize: 1
+lofo:
+  enabled: true
+
+sign_shuffle:
+  enabled: false
+  
+sections:
+  compute: true
+  figures: true
+  report: true

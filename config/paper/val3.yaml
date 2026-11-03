@@ -1,0 +1,105 @@
+run:
+  seed: 0
+  date_tag: auto
+  output_root: ../../outputs
+  output_name: auto
+  registry_path: ../dataset_registry.example.yaml
+
+data:
+  kg: signor
+  triplet_source: targetnexus_db
+  drug_profile: l1000
+  target_profile: l1000
+  disease_profile: disease_signature
+
+sections:
+  prepare_inputs: true
+  path_exploration: true
+  evaluation: true
+  make_visualization_tables: true
+  make_report: true
+
+analysis:
+  k_star: 4
+  gap: 1
+  directions: [inhibitory]
+  cell_pair_mode: cartesian
+
+infer:
+  path_strategy: simple
+  max_workers: 2
+  restrict_baseline_to_observed_evaluable: false
+  direction_modes:
+    inhibitory:
+      drug_mode: knockdown
+      pert_mode: knockdown
+    activatory:
+      drug_mode: overexpression
+      pert_mode: overexpression
+
+baseline:
+  # P0-4 primary spec: 100 repeats per repeat-driven null (empirical p floor 1/101).
+  n_shuffle: 100
+  # false is for exploratory / test runs only; it releases the n_shuffle=100 requirement.
+  is_primary_spec: true
+  null_models:
+    target_khop_restricted_paired_gene_label_permutation:
+      enabled: true
+      min_local_bg_genes: 0
+
+    path_count_length_matched_structural_resampling:
+      enabled: true
+
+    # Canonical Target-Decoy null: topology- and profile-matched decoy target control.
+    # Fixed model definition (candidate universe, matching variables, mid-rank
+    # percentile transform, equal-weight Euclidean distance, no path-evaluability
+    # prefilter, no post-inference backfill) is not configurable.
+    # is_primary_spec=true enforces n_decoys_per_triplet=10 and analysis.k_star=4.
+    topology_profile_matched_target_decoy_control:
+      enabled: true
+      # matched: 1:N percentile-rank nearest-neighbour matching
+      # random : 同一 candidate universe / 同一除外規則からの一様ランダム抽出
+      decoy_selection: matched
+      # Match the legacy observed-target-pool population exactly.
+      decoy_candidate_universe: l1000_kd_profile_x_signor_nodes_x_profile_supported_observed_targets
+      n_decoys_per_triplet: 10
+      exclude_known_positive_targets: true
+      positive_exclusion_scope: same_drug_disease
+      is_primary_spec: true
+
+evaluation:
+  metrics:
+    - jaccard
+  filters:
+    require_both_nonempty_inferred_paths: true
+    require_both_nonempty_signed_edges: false
+  evaluable_sets:
+    fixed_coverage:
+      enabled: false
+      min_candidate_nodes: 300
+    path_existing_pairs:
+      enabled: true
+  global_effect_size:
+    enabled: true
+  edge_scopes:
+    # all_edges is the primary analysis and cannot be disabled.
+    all_edges:
+      enabled: true
+    # First-edge exclusion sensitivity analysis: drop every signed edge emanating
+    # from the path root on both sides, keeping the evaluable triplet set, the
+    # contributing cell pairs and the comparison triplet set identical.
+    first_edge_excluded:
+      enabled: true
+  # Parallelism over source / triplet chunks inside one null repeat (not over repeats).
+  max_workers: 1
+
+progress:
+  enabled: true
+  use_tqdm: true
+  leave: false
+  mininterval: 1.0
+
+storage:
+  # path_exploration/evaluation/report/none
+  # evaluation keeps final report/evaluation tables and deletes path-exploration intermediates after successful evaluation.
+  intermediate_retention: evaluation

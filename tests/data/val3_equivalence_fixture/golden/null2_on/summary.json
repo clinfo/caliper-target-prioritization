@@ -1,0 +1,137 @@
+{
+  "n_cell_pairs_raw_total": 18,
+  "n_cell_pairs_evaluable_total": 4,
+  "n_cell_pairs_excluded_no_drug_path_total": 6,
+  "n_cell_pairs_excluded_no_pert_path_total": 10,
+  "n_cell_pairs_excluded_no_both_path_total": 2,
+  "n_triplets_true": 2,
+  "n_cell_pairs_baseline": 22,
+  "n_triplets_baseline": 8,
+  "n_shuffle": 3,
+  "cell_pair_mode": "cartesian",
+  "true_drug_infer_path": "<scratch>/infer_drug.parquet",
+  "true_pert_infer_path": "<scratch>/infer_pert.parquet",
+  "triplet_metrics_true": "<scratch>/triplet_metrics_true.parquet",
+  "cellpair_filter_diagnostics_true": "<scratch>/cellpair_filter_diagnostics_true.parquet",
+  "evaluation_iteration_timings": "<scratch>/evaluation_iteration_timings.tsv",
+  "per_iteration_wall_sec_median": 0.04637017101049423,
+  "per_iteration_wall_sec_max": 0.05447022011503577,
+  "global_summary": {
+    "enabled": true,
+    "global_effect_size_enabled": true,
+    "evaluable_set_types": [
+      "path_existing_pairs"
+    ],
+    "enabled_null_models": [
+      "target_khop_restricted_paired_gene_label_permutation",
+      "path_count_length_matched_structural_resampling",
+      "topology_profile_matched_target_decoy_control"
+    ],
+    "decoy_null_type": "topology_profile_matched_target_decoy_control",
+    "n_evaluable_triplets_by_set": {
+      "path_existing_pairs": 2
+    },
+    "n_comparison_triplets_by_null_and_set": {
+      "path_count_length_matched_structural_resampling": {
+        "path_existing_pairs": 2
+      },
+      "target_khop_restricted_paired_gene_label_permutation": {
+        "path_existing_pairs": 2
+      },
+      "topology_profile_matched_target_decoy_control": {
+        "path_existing_pairs": 2
+      }
+    },
+    "n_shuffle_by_null_type": {
+      "path_count_length_matched_structural_resampling": 3,
+      "target_khop_restricted_paired_gene_label_permutation": 3,
+      "topology_profile_matched_target_decoy_control": 0
+    },
+    "edge_scopes": [
+      "all_edges",
+      "first_edge_excluded"
+    ],
+    "outputs": {
+      "global_evaluable_triplets": "<scratch>/global_evaluable_triplets.tsv",
+      "global_joint_triplet_metrics_true": "<scratch>/global_joint_triplet_metrics_true.parquet",
+      "global_joint_triplet_metrics_baseline": "<scratch>/global_joint_triplet_metrics_baseline.parquet",
+      "global_joint_triplet_comparison_sets": "<scratch>/global_joint_triplet_comparison_sets.tsv",
+      "global_joint_triplet_comparison": "<scratch>/global_joint_triplet_comparison.tsv",
+      "global_effect_size": "<scratch>/global_effect_size.tsv",
+      "global_structural_pool_diagnostics": "<scratch>/global_structural_pool_diagnostics.tsv",
+      "decoy_anchor_diagnostics": "<scratch>/decoy_anchor_diagnostics.tsv",
+      "decoy_candidate_evaluability": "<scratch>/decoy_candidate_evaluability.tsv",
+      "decoy_triplet_evaluability": "<scratch>/decoy_triplet_evaluability.tsv",
+      "decoy_evaluability_summary": "<scratch>/decoy_evaluability_summary.tsv",
+      "decoy_matching_balance": "<scratch>/decoy_matching_balance.tsv",
+      "decoy_matching_acceptance": "<scratch>/decoy_matching_acceptance.tsv",
+      "decoy_delta_by_n_evaluable_decoys": "<scratch>/decoy_delta_by_n_evaluable_decoys.tsv",
+      "first_edge_exclusion_summary": "<scratch>/first_edge_exclusion_summary.tsv"
+    },
+    "outputs_by_edge_scope": {
+      "all_edges": {
+        "global_joint_triplet_metrics_true": "<scratch>/global_joint_triplet_metrics_true.parquet",
+        "global_joint_triplet_metrics_baseline": "<scratch>/global_joint_triplet_metrics_baseline.parquet",
+        "global_joint_triplet_comparison_sets": "<scratch>/global_joint_triplet_comparison_sets.tsv",
+        "global_joint_triplet_comparison": "<scratch>/global_joint_triplet_comparison.tsv",
+        "global_effect_size": "<scratch>/global_effect_size.tsv"
+      },
+      "first_edge_excluded": {
+        "global_joint_triplet_metrics_true": "<scratch>/global_joint_triplet_metrics_true.parquet",
+        "global_joint_triplet_metrics_baseline": "<scratch>/global_joint_triplet_metrics_baseline.parquet",
+        "global_joint_triplet_comparison_sets": "<scratch>/global_joint_triplet_comparison_sets.tsv",
+        "global_joint_triplet_comparison": "<scratch>/global_joint_triplet_comparison.tsv",
+        "global_effect_size": "<scratch>/global_effect_size.tsv"
+      }
+    },
+    "canonical_row_order_scope": "per_null_type_block_stable_sort_with_generation_block_order",
+    "target_decoy_matching_acceptance": {
+      "null_type": "topology_profile_matched_target_decoy_control",
+      "analysis_scope": "primary_path_evaluable",
+      "stage": "pre_inference_selected",
+      "weighting": "triplet_weighted",
+      "matching_variables": [
+        "directed_out_degree",
+        "reachable_unique_nodes_k4",
+        "unique_kd_cell_lines"
+      ],
+      "abs_smd_threshold": 0.1,
+      "evaluated": true,
+      "all_matching_variables_within_threshold": false,
+      "by_evaluable_set_type": {
+        "path_existing_pairs": {
+          "max_abs_smd": 1.414213562373095,
+          "n_matching_variables": 3,
+          "all_matching_variables_within_threshold": false,
+          "abs_smd_by_variable": {
+            "directed_out_degree": 1.414213562373095,
+            "reachable_unique_nodes_k4": NaN,
+            "unique_kd_cell_lines": 1.414213562373095
+          }
+        }
+      }
+    }
+  },
+  "cellpair_metrics_debug": {
+    "root": "<scratch>/cellpair_metrics_debug",
+    "n_parts": 13,
+    "parts": [
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00000.parquet",
+      "<scratch>/part-00001.parquet",
+      "<scratch>/part-00002.parquet",
+      "<scratch>/part-00003.parquet",
+      "<scratch>/part-00004.parquet",
+      "<scratch>/part-00005.parquet"
+    ]
+  },
+  "fraction_evaluable_cell_pairs": 0.2222222222222222,
+  "direction": "inhibitory",
+  "fixture_variant": "null2_on"
+}

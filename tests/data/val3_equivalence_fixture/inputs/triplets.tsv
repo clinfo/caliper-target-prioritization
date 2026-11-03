@@ -1,0 +1,5 @@
+triplet_id	drug_id	target_id	disease_id	label	direction
+T1	PUBCHEM.COMPOUND:11	NCBIGENE:1	DOID:1	1	inhibitory
+T2	PUBCHEM.COMPOUND:12	NCBIGENE:4	DOID:1	1	inhibitory
+T3	PUBCHEM.COMPOUND:13	NCBIGENE:8	DOID:2	1	inhibitory
+T4	PUBCHEM.COMPOUND:99	NCBIGENE:10	DOID:2	1	inhibitory
